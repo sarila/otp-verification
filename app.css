@@ -1,0 +1,53 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.otp {
+	width: 40px;
+}
+.card {
+	width: 500px;
+	margin: 0 auto;
+    float: none;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.card-body {
+	text-align: center;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.row {
+	justify-content: space-evenly;
+}
+
+/*For arrows in input numbers*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.submit {
+	background-color: darkblue;
+	font-size: 15px;
+	color: white;
+	border: 1px solid darkblue;
+	border-radius: 10px;
+	width: 90px;
+	padding: 10px;
+
+}
+
+.otp {
+	margin-right: 5px;
+	border: 1px solid  ;
+	border-radius: 10px;
+}
