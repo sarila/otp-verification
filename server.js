@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var session = require('express-session');
+var flash = require('connect-flash');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -8,6 +10,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.engine('html', require('ejs').renderFile);
+app.use(session({
+	secret: 'secret',
+	cookie: { maxAge:60000 },
+	resave: false,
+	saveUninitialized: false
+}));
+
+app.use(flash());
 
 app.get('/', function(req, res) {
 	res.render('index');
@@ -27,7 +37,8 @@ app.post('/otp', function (req, res) {
 	var otp = txt1+txt2+txt3+txt4+txt5+txt6;
 	// console.log("The otp input is" + otp);
 	if (otp == "" || otp.length != 6 || otp%10 == 7 ){
-		res.status(500).redirect('back', { message: 'Verification Error' } );
+		req.flash('message', 'Verification Failed')
+		res.render('index', { message: req.flash('message') } );
 	} else {
 		res.status(200).redirect('/success');
 	}

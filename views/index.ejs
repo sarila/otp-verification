@@ -8,11 +8,14 @@
 </head>
 <body>
 	<div class="container">
-		<% if (locals.message) {%>
-		<div class="text-danger">
-			<p><%- message %></p>
+		<div class="message text-center" >
+			<% if (locals.message) {%>
+			<div class="text-danger">
+				<p><%= message %></p>
+			</div>
+			<% }%>
 		</div>
-		<% }%>
+		
 		<form method="POST" action="/otp">
 		<div class="card">
 			<div class="card-header">The OTP verification page</div>
