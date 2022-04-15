@@ -20,13 +20,13 @@
 		<div class="card">
 			<div class="card-header">The OTP verification page</div>
 			<div class="card-body">
-					<div class="row">
-						<input type="num" class="otp" id="txt1" name="txt1" maxlength="1" onkeyup="movecursor(event, '', 'txt1', 'txt2')">
-						<input type="num" class="otp" id="txt2" name="txt2" maxlength="1" onkeyup="movecursor(event, 'txt1', 'txt2', 'txt3')">
-						<input type="num" class="otp" id="txt3" name="txt3" maxlength="1" onkeyup="movecursor(event, 'txt2', 'txt3', 'txt4')">
-						<input type="num" class="otp" id="txt4" name="txt4" maxlength="1" onkeyup="movecursor(event, 'txt3', 'txt4', 'txt5')">
-						<input type="num" class="otp" id="txt5" name="txt5" maxlength="1" onkeyup="movecursor(event, 'txt4', 'txt5', 'txt6')">
-						<input type="num" class="otp" id="txt6" name="txt6" maxlength="1" onkeyup="movecursor(event, 'txt5', 'txt6', '')">
+					<div class="row" id="otp_input">
+						<input type="number" class="otp" id="txt1" name="txt1" maxlength="1" onkeyup="movecursor(event, '', 'txt1', 'txt2')" required>
+						<input type="number" class="otp" id="txt2" name="txt2" maxlength="1" onkeyup="movecursor(event, 'txt1', 'txt2', 'txt3')" required>
+						<input type="number" class="otp" id="txt3" name="txt3" maxlength="1" onkeyup="movecursor(event, 'txt2', 'txt3', 'txt4')" required>
+						<input type="number" class="otp" id="txt4" name="txt4" maxlength="1" onkeyup="movecursor(event, 'txt3', 'txt4', 'txt5')" required>
+						<input type="number" class="otp" id="txt5" name="txt5" maxlength="1" onkeyup="movecursor(event, 'txt4', 'txt5', 'txt6')" required>
+						<input type="number" class="otp" id="txt6" name="txt6" maxlength="1" onkeyup="movecursor(event, 'txt5', 'txt6', '')" required>
 					</div>
 					<div class="row">
 						<input type="submit" name="submit" class="submit">
@@ -38,22 +38,6 @@
 		
 	</div>
 
-	<script>
-		function movecursor(event, prev, curr, next) {
-			// console.log(event);
-			 var length = document.getElementById(curr).value.toString().length;
-			 var maxlength = document.getElementById(curr).getAttribute("maxlength");
-			 if (length == maxlength) {
-			 	if (next != "") {
-			 		document.getElementById(next).focus();
-			 	}
-			 }
-			 if (event.code == "Backspace") {
-			 	if (prev != "") {
-			 		document.getElementById(prev).focus();
-			 	}
-			 }
-		}
-	</script>
+	<script src="/assets/app.js"></script>
 </body>
 </html>
